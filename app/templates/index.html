@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Audio Threat Detector{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Audio Threat Detector</h1>
+    <p class="lead">Upload audio files for threat detection and analysis using AI</p>
+    <hr class="my-4">
+    <p>Our system uses advanced AI to analyze audio content and detect potential security threats.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('main.upload') }}" role="button">Upload Audio</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h3>Features</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Audio file processing</li>
+            <li class="list-group-item">AI-powered threat detection</li>
+            <li class="list-group-item">Real-time analysis</li>
+            <li class="list-group-item">Detailed threat reports</li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <h3>Recent Analysis</h3>
+        {% if recent_results %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Threat Type</th>
+                        <th>Severity</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in recent_results %}
+                    <tr>
+                        <td>{{ result.audio_input.filename }}</td>
+                        <td>{{ result.threat_type }}</td>
+                        <td><span class="badge bg-{{ result.severity_class }}">{{ result.severity }}</span></td>
+                        <td>{{ result.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p>No recent analyses available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Audio - Audio Threat Detector{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Upload Audio File</h2>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('main.upload') }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="audio_file" class="form-label">Select Audio File</label>
+                        <input type="file" class="form-control" id="audio_file" name="audio_file" accept="audio/*" required>
+                        <div class="form-text">Supported formats: WAV, MP3, M4A, AAC</div>
+                    </div>
+
+                    <div class="progress mb-3 d-none" id="upload-progress">
+                        <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Upload and Analyze</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="processing-status" class="mt-4 d-none">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Processing Status</h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <p class="mt-2 mb-0" id="status-text">Initializing...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

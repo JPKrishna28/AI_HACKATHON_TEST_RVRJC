@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis History - Audio Threat Detector{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Analysis History</h2>
+    </div>
+    <div class="card-body">
+        {% if results %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Threat Type</th>
+                        <th>Confidence</th>
+                        <th>Severity</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ result.audio_input.filename }}</td>
+                        <td>{{ result.threat_type }}</td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" 
+                                     style="width: {{ result.confidence * 100 }}%">
+                                    {{ "%.1f"|format(result.confidence * 100) }}%
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-{{ result.severity_class }}">{{ result.severity }}</span></td>
+                        <td>{{ result.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>
+                            <a href="{{ url_for('main.view_result', result_id=result.id) }}" 
+                               class="btn btn-sm btn-primary">View Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.history', page=page-1) }}">Previous</a>
+                </li>
+                {% endif %}
+                
+                <li class="page-item active">
+                    <span class="page-link">Page {{ page }} of {{ total_pages }}</span>
+                </li>
+
+                {% if page < total_pages %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.history', page=page+1) }}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% else %}
+        <p class="text-center">No analysis results found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

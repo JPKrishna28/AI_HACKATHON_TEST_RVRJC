@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Audio Threat Detection System{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center p-5">
+                <div class="mb-4">
+                    <i class="fas fa-shield-alt text-primary" style="font-size: 4rem;"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">Audio Threat Detection System</h1>
+                <p class="lead mb-4">
+                    Advanced AI-powered audio analysis for real-time threat detection and security monitoring.
+                    Upload audio files to detect various threat types including theft, violence, emergencies, and more.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="{{ url_for('upload_page') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-upload me-2"></i>Upload Audio
+                    </a>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-chart-dashboard me-2"></i>View Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="text-center mb-4" style="color: white; font-weight: 600;">Key Features</h2>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-microphone-alt text-primary" style="font-size: 2.5rem;"></i>
+                </div>
+                <h5 class="card-title">Audio Transcription</h5>
+                <p class="card-text">
+                    Advanced speech-to-text conversion using Sarvam AI with support for multiple audio formats
+                    including WAV, MP3, M4A, and more.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-brain text-success" style="font-size: 2.5rem;"></i>
+                </div>
+                <h5 class="card-title">AI Threat Analysis</h5>
+                <p class="card-text">
+                    Powered by Google's Gemini AI to classify and analyze potential threats with confidence scores
+                    and detailed reasoning.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <i class="fas fa-clock text-warning" style="font-size: 2.5rem;"></i>
+                </div>
+                <h5 class="card-title">Real-time Processing</h5>
+                <p class="card-text">
+                    Fast processing with chunked audio analysis for large files and real-time threat detection
+                    capabilities.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Threat Types Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Detectable Threat Types
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <span class="threat-badge severity-high">
+                                    <i class="fas fa-user-secret me-2"></i>Theft & Robbery
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-critical">
+                                    <i class="fas fa-fist-raised me-2"></i>Domestic Violence
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-high">
+                                    <i class="fas fa-hand-rock me-2"></i>Physical Assault
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-medium">
+                                    <i class="fas fa-user-shield me-2"></i>Harassment
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-medium">
+                                    <i class="fas fa-home me-2"></i>Land Disputes
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-high">
+                                    <i class="fas fa-credit-card me-2"></i>Fraud
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <span class="threat-badge severity-critical">
+                                    <i class="fas fa-fire me-2"></i>Fire Emergency
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-critical">
+                                    <i class="fas fa-ambulance me-2"></i>Medical Emergency
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-medium">
+                                    <i class="fas fa-hammer me-2"></i>Vandalism
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-high">
+                                    <i class="fas fa-pills me-2"></i>Drug Related
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-low">
+                                    <i class="fas fa-volume-up me-2"></i>Noise Complaint
+                                </span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="threat-badge severity-low">
+                                    <i class="fas fa-question me-2"></i>Unknown/Other
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-cogs me-2"></i>
+                    How It Works
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 text-center mb-4">
+                        <div class="mb-3">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" 
+                                 style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">1</div>
+                        </div>
+                        <h5>Upload Audio</h5>
+                        <p>Upload your audio file in any supported format (WAV, MP3, M4A, etc.)</p>
+                    </div>
+                    
+                    <div class="col-md-3 text-center mb-4">
+                        <div class="mb-3">
+                            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center" 
+                                 style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">2</div>
+                        </div>
+                        <h5>AI Transcription</h5>
+                        <p>Advanced speech-to-text conversion processes your audio with high accuracy</p>
+                    </div>
+
+                    <div class="col-md-3 text-center mb-4">
+                        <div class="mb-3">
+                            <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                                 style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">3</div>
+                        </div>
+                        <h5>Threat Analysis</h5>
+                        <p>Gemini AI analyzes the transcribed text to identify potential threats and risks</p>
+                    </div>
+
+                    <div class="col-md-3 text-center mb-4">
+                        <div class="mb-3">
+                            <div class="bg-danger text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                                 style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">4</div>
+                        </div>
+                        <h5>Get Results</h5>
+                        <p>Receive detailed threat classification with confidence scores and actionable insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-4">
+                        <div class="mb-2">
+                            <i class="fas fa-file-audio text-primary" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">{{ stats.total_files if stats else '0' }}</h4>
+                        <p class="mb-0 text-muted">Audio Files Processed</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="mb-2">
+                            <i class="fas fa-exclamation-triangle text-danger" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-danger">{{ stats.threats_detected if stats else '0' }}</h4>
+                        <p class="mb-0 text-muted">Threats Detected</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="mb-2">
+                            <i class="fas fa-clock text-success" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-success">{{ stats.avg_processing_time if stats else '0' }}s</h4>
+                        <p class="mb-0 text-muted">Average Processing Time</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="mb-2">
+                            <i class="fas fa-percentage text-info" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-info">{{ stats.accuracy_rate if stats else '95' }}%</h4>
+                        <p class="mb-0 text-muted">Detection Accuracy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title mb-0">
+                    <i class="fas fa-history me-2"></i>
+                    Recent Activity
+                </h3>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-sm btn-outline-primary">
+                    View All <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                {% if recent_files %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Threat Type</th>
+                                    <th>Confidence</th>
+                                    <th>Processed</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for file in recent_files[:5] %}
+                                <tr>
+                                    <td>
+                                        <i class="fas fa-file-audio me-2 text-muted"></i>
+                                        {{ file.filename }}
+                                    </td>
+                                    <td>
+                                        <span class="threat-badge severity-{{ file.severity_class }}">
+                                            {{ file.threat_type }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="progress" style="width: 80px; height: 20px;">
+                                            <div class="progress-bar" role="progressbar"
+                                                 style="width: {{ file.confidence }}%"
+                                                 aria-valuenow="{{ file.confidence }}"
+                                                 aria-valuemin="0" aria-valuemax="100">
+                                                {{ file.confidence }}%
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">{{ file.processed_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url_for('result_detail', id=file.id) }}"
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-file-audio text-muted" style="font-size: 3rem;"></i>
+                        <h5 class="mt-3 text-muted">No audio files processed yet</h5>
+                        <p class="text-muted">Upload your first audio file to get started with threat detection.</p>
+                        <a href="{{ url_for('upload_page') }}" class="btn btn-primary">
+                            <i class="fas fa-upload me-2"></i>Upload Audio File
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card bg-primary text-white">
+            <div class="card-body text-center py-5">
+                <h3 class="mb-3">Ready to Secure Your Environment?</h3>
+                <p class="lead mb-4">
+                    Start protecting your space with advanced AI-powered audio threat detection.
+                    Upload your first audio file and experience the power of intelligent security monitoring.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="{{ url_for('upload_page') }}" class="btn btn-light btn-lg">
+                        <i class="fas fa-upload me-2"></i>Get Started Now
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#demoModal">
+                        <i class="fas fa-play me-2"></i>Watch Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Demo Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="demoModalLabel">System Demo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center py-4">
+                    <i class="fas fa-video text-primary" style="font-size: 4rem;"></i>
+                    <h4 class="mt-3">Demo Video Coming Soon</h4>
+                    <p class="text-muted">
+                        We're preparing an interactive demo to show you how our Audio Threat Detection System works.
+                        Check back soon or contact us for a live demonstration.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{{ url_for('upload_page') }}" class="btn btn-primary">Try It Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.threat-badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.severity-critical {
+    background-color: #dc3545;
+    color: white;
+}
+
+.severity-high {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.severity-medium {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.severity-low {
+    background-color: #6c757d;
+    color: white;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.progress {
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: #0d6efd;
+}
+</style>
+{% endblock %}

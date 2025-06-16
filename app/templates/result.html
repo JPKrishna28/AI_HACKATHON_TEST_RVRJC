@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis Results - Audio Threat Detector{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Analysis Results</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Audio Information</h4>
+                <table class="table">
+                    <tr>
+                        <th>File Name:</th>
+                        <td>{{ result.audio_input.filename }}</td>
+                    </tr>
+                    <tr>
+                        <th>Upload Date:</th>
+                        <td>{{ result.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h4>Threat Analysis</h4>
+                <table class="table">
+                    <tr>
+                        <th>Threat Type:</th>
+                        <td><span class="badge bg-primary">{{ result.threat_type }}</span></td>
+                    </tr>
+                    <tr>
+                        <th>Confidence:</th>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" 
+                                     style="width: {{ result.confidence * 100 }}%">
+                                    {{ "%.1f"|format(result.confidence * 100) }}%
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Severity:</th>
+                        <td><span class="badge bg-{{ result.severity_class }}">{{ result.severity }}</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>Analysis Details</h4>
+                <div class="card">
+                    <div class="card-body">
+                        {{ result.analysis }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if result.keywords %}
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>Detected Keywords</h4>
+                {% for keyword in result.keywords %}
+                <span class="badge bg-secondary me-2">{{ keyword }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if result.transcript %}
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>Transcript</h4>
+                <div class="card">
+                    <div class="card-body">
+                        {{ result.transcript }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if result.recommended_action %}
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>Recommended Action</h4>
+                <div class="alert alert-info">
+                    {{ result.recommended_action }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

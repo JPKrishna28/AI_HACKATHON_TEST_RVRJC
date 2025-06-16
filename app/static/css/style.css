@@ -1,0 +1,56 @@
+/* Custom styles */
+.progress {
+    height: 20px;
+}
+
+.severity-badge {
+    font-size: 0.9em;
+    padding: 0.4em 0.8em;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+}
+
+.jumbotron {
+    padding: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+#processing-status {
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.alert {
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
